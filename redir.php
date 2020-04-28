@@ -41,6 +41,7 @@ if ($link == "redit.php" || $link == "" ) $link = $msg = "";
             font-family: 'WorkSans', helvetica, sans-serif;
             padding:0;
             margin:0;
+            display: table;
         }
         h1 {
             font-size:42px;
@@ -50,6 +51,9 @@ if ($link == "redit.php" || $link == "" ) $link = $msg = "";
         .Selection {
             text-align: center;
             font-size: 24px;
+            display: table-cell;
+            vertical-align: middle;
+            height:100%;
         }
 
         .Selection input {
