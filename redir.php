@@ -35,6 +35,8 @@ if ($tolink != "")
             background: #9900fc;
             color: white;
             font-family: 'WorkSans', helvetica, sans-serif;
+            padding:0;
+            margin:0;
         }
 
         .Selection {
