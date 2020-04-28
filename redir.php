@@ -66,6 +66,7 @@ if ($link == "redit.php" || $link == "" ) $link = $msg = "";
 
         .autocomplete-suggestion {
             padding: 2px;
+            color:#999999;
         }
 
         .autocomplete-suggestion:hover {
