@@ -1,7 +1,6 @@
 <?php
 
 $link = $_REQUEST['link'];
-if ($link == "redit.php") $link = "";
 
 $tolink = "";
 $csv = file_get_contents("https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv");
@@ -17,6 +16,11 @@ foreach ($lines as $line) {
 
 if ($tolink != "")
     header("location: $tolink");
+else
+    $msg = "<span class='error'>There is no <b>$link</b> defined as a short link.</span>";
+
+if ($link == "redit.php" || $link == "" ) $link = $msg = "";
+
 ?>
 <html>
 
@@ -37,15 +41,24 @@ if ($tolink != "")
             font-family: 'WorkSans', helvetica, sans-serif;
             padding:0;
             margin:0;
+            display: table;
         }
-
+        h1 {
+            font-size:42px;
+            margin:0px;
+            padding:0px;
+        }
         .Selection {
             text-align: center;
             font-size: 24px;
+            display: table-cell;
+            vertical-align: middle;
+            height:100%;
         }
 
         .Selection input {
             padding: 10px;
+            font-size: 24px;
         }
 
         .autocomplete-suggestions {
@@ -57,7 +70,7 @@ if ($tolink != "")
 
         .autocomplete-suggestion {
             padding: 2px;
-
+            color:#999999;
         }
 
         .autocomplete-suggestion:hover {
@@ -66,12 +79,24 @@ if ($tolink != "")
 
         .autocomplete-suggestion strong {
             color: #9900fc;
-            font-weight: normal;
+        }
+        .error {
+            background:white;
+            color:red;
+            display:inline-block;
+            padding:5px;
+            border-radius:3px;
         }
     </style>
     <div class="Selection">
-        <strong>HYPHA<br></strong>
-        <label for="files">Enter Short Link</label><br>
+        <h1>HYPHA</h1>
+        <label for="files">Short Link Redirector</label>
+        <br/>
+        <br/>
+        <?=$msg?>
+        <br/>
+        Enter short link
+        <br/>
         <input type="text" name="code" id="autocomplete" value="<?= $link ?>" />
     </div>
     <script>
