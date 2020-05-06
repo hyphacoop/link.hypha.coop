@@ -11,7 +11,8 @@ Small PHP script redirect user to a URL based on a keyword mach found in a CSV s
 
 ### NGINX
 
-Since NGINX does not read .htaccess you must add a redirect into the config
+Since NGINX does not read .htaccess you must add a redirect into the config.
+
 To do so add `rewrite ^/(.*)$ /index.php?link=$1 last;` at the last line the `location / {` block.
 
 ie
@@ -28,5 +29,7 @@ http://`YourDomainName`/`keyword`>
 ## CSV Format
 
 `keyword`,`destination_url`
+
 ie
+
 `example`,`https://example.org`
