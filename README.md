@@ -24,7 +24,7 @@ location / {
 ```
 ## Usage
 
-http://`YourDomainName`/`keyword`>
+http://`YourDomainName`/`keyword`
 
 ## CSV Format
 
