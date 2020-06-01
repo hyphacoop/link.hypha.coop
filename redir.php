@@ -1,6 +1,10 @@
 <?php
 // URL to list of CSV Shortlinks
-$URLToCSV="https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv";
+$host=$_SERVER['HTTP_HOST'];
+$URLToCSV=dns_get_record ("shortlinksrc." . $host, DNS_TXT)[0]['txt'];
+
+if (!$URLToCSV) 
+    $URLToCSV="https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv";
 
 // Enable caching of file by defining the number of minutes the file is considered stale
 // 0 = disables caching
@@ -8,7 +12,7 @@ $cacheInterval=15;
 // Path to the file where the caching will be stored
 // File must be writable
 // Hint: chown www-data.www-data shortlinks.csv 
-$cacheFile=dirname(__FILE__) . "/shortlinks.csv";
+$cacheFile=dirname(__FILE__) . "/$host_shortlinks.csv";
 
 $MSG="";
 $link = $_REQUEST['link'];
