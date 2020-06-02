@@ -12,7 +12,7 @@ $cacheInterval=15;
 // Path to the file where the caching will be stored
 // File must be writable
 // Hint: chown www-data.www-data shortlinks.csv 
-$cacheFile=dirname(__FILE__) . "/$host_shortlinks.csv";
+$cacheFile=dirname(__FILE__) . "/" . $host . "_shortlinks.csv";
 
 $MSG="";
 $link = $_REQUEST['link'];
