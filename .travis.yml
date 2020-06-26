@@ -1,6 +1,6 @@
 language: php
-rvm:
-  - 5.3
+php:
+  - 7.3
 
 before_install:
   # Here, we decrypt a passwordless ssh key for acting as a user on the server named "travis"
