@@ -17,6 +17,6 @@ SITE_DIR="/var/www/link.hypha.coop"
 # - Skip the host fingerprint check
 # - Don't save the fingerprint to known_hosts
 rsync -v -r \
-  --delete-after 
+  --delete-after \
   -e "ssh -i $IDENTITY_FILE -o StrictHostKeyChecking=no -p $PORT" \
-  _site/* $USER@$SERVER:$SITE_DIR || true
+  _site/* $USER@$SERVER:$SITE_DIR
