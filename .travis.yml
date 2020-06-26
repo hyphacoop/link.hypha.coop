@@ -1,7 +1,8 @@
-language: php
-php:
-  - 7.3
-
+dist: xenial
+sudo: required
+addons:
+  ssh_known_hosts: bw1.hypha.coop
+  
 before_install:
   # Here, we decrypt a passwordless ssh key for acting as a user on the server named "travis"
   #   # See: https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption
