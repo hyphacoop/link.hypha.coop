@@ -17,7 +17,7 @@ SITE_DIR="/var/www/link.hypha.coop"
 # - Skip the host fingerprint check
 # - Don't save the fingerprint to known_hosts
 ls -la _scripts
-scp -r \
+scp -v -r \
   -i $IDENTITY_FILE \
   -P $PORT \
   -o StrictHostKeyChecking=no \
