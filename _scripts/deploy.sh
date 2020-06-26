@@ -16,6 +16,7 @@ SITE_DIR="/var/www/link.hypha.coop"
 # This is done to skip the fingerprint check on new connection
 # - Skip the host fingerprint check
 # - Don't save the fingerprint to known_hosts
+ls -la
 scp -r \
   -i $IDENTITY_FILE \
   -P $PORT \
