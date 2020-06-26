@@ -19,4 +19,4 @@ SITE_DIR="/var/www/link.hypha.coop"
 rsync -v -r \
   --delete-after \
   -e "ssh -i $IDENTITY_FILE -o StrictHostKeyChecking=no -p $PORT" \
-  _site/* $USER@$SERVER:$SITE_DIR
+  ./* $USER@$SERVER:$SITE_DIR
