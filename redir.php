@@ -1,9 +1,36 @@
 <?php
+// URL to list of CSV Shortlinks
+$URLToCSV="https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv";
 
+// Enable caching of file by defining the number of minutes the file is considered stale
+// 0 = disables caching
+$cacheInterval=15;
+// Path to the file where the caching will be stored
+// File must be writable
+// Hint: chown www-data.www-data shortlinks.csv 
+$cacheFile=dirname(__FILE__) . "/shortlinks.csv";
+
+$MSG="";
 $link = $_REQUEST['link'];
 
 $tolink = "";
-$csv = file_get_contents("https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv");
+
+if ($cacheInterval) { 
+    if (is_writable($cacheFile)) {
+        if (time()-filemtime($filename) >  $cacheInterval * 60) {
+            $csv = file_get_contents($URLToCSV);
+            file_put_contents($cacheFile,$csv);
+        } else {
+            $csv = file_get_contents($cacheFile);
+        }
+    } else {
+        $csv = file_get_contents($URLToCSV);
+        $MSG="Cannot Write To $cacheFile<br>";
+    }
+} else {
+    $csv = file_get_contents($URLToCSV);
+}
+
 
 $lines = explode("\n", $csv);
 foreach ($lines as $line) {
@@ -98,6 +125,7 @@ if ($link == "redit.php" || $link == "" ) $link = $msg = "";
         Enter short link
         <br/>
         <input type="text" name="code" id="autocomplete" value="<?= $link ?>" />
+        <center><?=$MSG?></center>
     </div>
     <script>
         var options = [
