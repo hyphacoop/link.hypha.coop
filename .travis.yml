@@ -18,7 +18,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-    - if [ "$TRAVIS_BRANCH" = "staging" ]; then echo "Deploying to staging"; bash -x _scripts/deploy.sh deploy _scripts/id_rsa-staging bw1.staging.hypha.coop 8003; elif [ "$TRAVIS_BRANCH" = "master" ]; then echo "Deploying to production"; bash -x _scripts/deploy.sh deploy _scripts/id_rsa-production bw1.hypha.coop 1003; fi
+    - if [ "$TRAVIS_BRANCH" = "staging" ]; then echo "Deploying to staging"; bash -x _scripts/deploy.sh deploy _scripts/id_rsa-staging bw1.staging.hypha.coop 8003 /var/www/link.staging.hypha.coop; elif [ "$TRAVIS_BRANCH" = "master" ]; then echo "Deploying to production"; bash -x _scripts/deploy.sh deploy _scripts/id_rsa-production bw1.hypha.coop 1003 /var/www/link.hypha.coop; fi
   on:
     branch:
       - master
