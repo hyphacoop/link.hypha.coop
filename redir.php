@@ -3,7 +3,7 @@
 $link = $_REQUEST['link'];
 
 $tolink = "";
-$csv = file_get_contents("https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv");
+$csv = file_get_contents("https://raw.githubusercontent.com/hyphacoop/configurations/master/hyphacoop/shortlinks/shortlinks.csv");
 
 $lines = explode("\n", $csv);
 foreach ($lines as $line) {
