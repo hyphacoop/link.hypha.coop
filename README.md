@@ -4,7 +4,7 @@ A small PHP script that redirects to a URL based on a keyword matched against a 
 
 ## Installation
 
-1. Place files in an Apache webserver with PHP support
+1. Place files in an NGINX webserver with PHP support
 
 2. Update path to CSV file (`$csv` variable)
 
@@ -16,8 +16,8 @@ To do so add `rewrite ^/(.*)$ /index.php?link=$1 last;` at the last line of the 
 
 ```
 location / {
-  try_files $uri $uri/ =404;
-  rewrite ^/(.*)$ /index.php?link=$1 last;
+	try_files $uri $uri/ =404;
+	rewrite ^/(.*)$ /redir.php?link=$1 last;
 }
 ```
 
@@ -33,4 +33,13 @@ For example:
 
 Browse to:
 
-> https://`YOUR_DOMAIN_NAME`/`keyword`
+> https://`link.hypha.coop`/`keyword`
+
+## Deploying
+We use this Ansible playbook to configure our reverse proxy and web server vhosts which also creates the directory to store the site files.
+
+Once the playbook is done we can now deploy the site files using Travis CI with the `deploy` user's SSH key.
+
+`staging` branch deploys to the staging server accessible here: https://link.staging.hypha.coop
+
+`master` branch deploys to the production site.
