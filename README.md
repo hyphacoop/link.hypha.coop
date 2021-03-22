@@ -35,6 +35,9 @@ Browse to:
 
 > https://`link.hypha.coop`/`keyword`
 
+For tips on managing and using these shortlinks,
+see the [Shortlink Guides](https://handbook.hypha.coop/guides.html#shortlinks) in Hypha's Handbook.
+
 ## Deploying
 We use this [Ansible playbook](https://github.com/hyphacoop/ansibles/blob/master/deploy-hypha-sites/deploy-site-link.hypha.coop.yml) to configure our reverse proxy and web server vhosts which also creates the directory to store the site files.
 
