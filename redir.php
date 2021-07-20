@@ -18,7 +18,7 @@ $link = $_REQUEST['link'];
 
 $tolink = "";
 
-if ($cacheInterval) { 
+if ($cacheInterval || $forceRefresh) { 
     if (is_writable($cacheFile)) {
         if (time()-filemtime($filename) > $cacheInterval * 60) {
             $csv = file_get_contents($URLToCSV);
