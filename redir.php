@@ -28,7 +28,7 @@ if ($cacheInterval || $forceRefresh) {
         }
     } else {
         $csv = file_get_contents($URLToCSV);
-        $MSG="Cannot Write To $cacheFile<br>";
+        $MSG="Failed get a writable cache file: $cacheFile<br />";
     }
 } else {
     $csv = file_get_contents($URLToCSV);
