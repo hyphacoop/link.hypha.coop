@@ -20,7 +20,7 @@ $tolink = "";
 
 if ($cacheInterval || $forceRefresh) { 
     if (is_writable($cacheFile)) {
-        if (time()-filemtime($filename) > $cacheInterval * 60) {
+        if (time()-filemtime($filename) > $cacheInterval * 60 || $forceRefresh)  {
             $csv = file_get_contents($URLToCSV);
             file_put_contents($cacheFile,$csv);
         } else {
