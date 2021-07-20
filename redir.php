@@ -5,6 +5,9 @@ $URLToCSV="https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortli
 // Enable caching of file by defining the number of minutes the file is considered stale
 // 0 = disables caching
 $cacheInterval=15;
+
+$forceRefresh=0;
+if (isset($_REQUEST['force'])) $forceRefresh = 1;
 // Path to the file where the caching will be stored
 // File must be writable
 // Hint: chown www-data.www-data shortlinks.csv 
