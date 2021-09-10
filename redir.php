@@ -128,7 +128,7 @@ if ($link == "redit.php" || $link == "" ) $link = $msg = "";
         Enter short link
         <br/>
         <input type="text" name="code" id="autocomplete" value="<?= $link ?>" />
-        <center><?=$MSG?></center>
+        <script>console.log("<?=$MSG?>");</script>
     </div>
     <script>
         var options = [
