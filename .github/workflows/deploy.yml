@@ -26,20 +26,20 @@ jobs:
 
       - name: Saving secrets
         run: |
-          echo "${{ secrets.SSH_STG }}" > _scripts/id_rsa-staging
+          echo "${{ secrets.SSH_STG }}" > .scripts/id_rsa-staging
           chmod 600 _scripts/id_rsa-staging
-          echo "${{ secrets.SSH_PROD }}" > _scripts/id_rsa-production
+          echo "${{ secrets.SSH_PROD }}" > .scripts/id_rsa-production
           chmod 600 _scripts/id_rsa-production
 
       - name: Deploy to Staging
         if: ${{ github.ref == 'refs/heads/staging' }}
         run: |
           ls ${{ github.workspace }}
-          bash -x _scripts/deploy.sh deploy _scripts/id_rsa-staging bw1.staging.hypha.coop 8003 /var/www/link.staging.hypha.coop
+          bash -x _scripts/deploy.sh deploy .scripts/id_rsa-staging bw1.staging.hypha.coop 8003 /var/www/link.staging.hypha.coop
 
       - name: Deploy to Production
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           ls ${{ github.workspace }}
-          bash -x _scripts/deploy.sh deploy _scripts/id_rsa-production bw1.hypha.coop 1003 /var/www/link.staging.hypha.coop
+          bash -x _scripts/deploy.sh deploy .scripts/id_rsa-production bw1.hypha.coop 1003 /var/www/link.staging.hypha.coop
           
