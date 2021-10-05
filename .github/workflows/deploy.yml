@@ -41,5 +41,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           ls ${{ github.workspace }}
-          bash -x .scripts/deploy.sh deploy .scripts/id_rsa-production bw1.hypha.coop 1003 /var/www/link.staging.hypha.coop
+          bash -x .scripts/deploy.sh deploy .scripts/id_rsa-production bw1.hypha.coop 1003 /var/www/link.hypha.coop
           
