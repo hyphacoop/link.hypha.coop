@@ -34,7 +34,6 @@ if ($cacheInterval || $forceRefresh) {
     $csv = file_get_contents($URLToCSV);
 }
 
-
 $lines = explode("\n", $csv);
 foreach ($lines as $line) {
     $val = explode(",", $line);
