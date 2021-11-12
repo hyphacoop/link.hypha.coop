@@ -1,6 +1,6 @@
 <?php
 // URL to list of CSV Shortlinks
-$URLToCSV="https://raw.githubusercontent.com/hyphacoop/shortlinks/master/shortlinks.csv";
+$URLToCSV="https://raw.githubusercontent.com/hyphacoop/configurations/master/hyphacoop/shortlinks/shortlinks.csv";
 
 // Enable caching of file by defining the number of minutes the file is considered stale
 // 0 = disables caching
